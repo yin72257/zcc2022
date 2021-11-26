@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="container">
+
+    <main>
+        <div>
+            <h1>Mobile Ticket Viewer</h1>
+            <p>Total tickets: <%= total %>, <%= current %> on this page</p>
+            <ul>
+                <% tickets.forEach(function(ticket) { %>
+                    <li>
+                        <a href=<%= view_url + ticket.id %>><%= ticket.id %>. <%= ticket.status %>: <%= ticket.subject %></a>
+                    </li>
+                <% }); %>
+            </ul>
+            <% if (has_more) { %>
+                <a href=<%= next_url %> >Next page</a>
+            <% } else { %>
+                <a href=<%= back_url %> >Back to the top</a>
+            <% } %>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>
