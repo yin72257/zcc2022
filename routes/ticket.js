@@ -44,7 +44,15 @@ router.get('/', async function (req, res) {
             back_url: back_url
         });
     } catch (err) {
-        console.log(err);
+        const error_message = `${err.response.status} ${err.response.statusText}.`;
+        let description = "Uh oh there seems to be an error";
+        if (err.response.status == '401') {
+            description = 'There may be an authentication error in your auth/auth.json file.';
+        }
+        res.render('pages/error', {
+            error: error_message,
+            description: description
+        });
     }
 });
 
@@ -67,7 +75,21 @@ router.get('/view/:ticket_id', async function (req, res) {
             back_url: back_url
         });
     } catch (err) {
-        console.log(id);
+        const error_message = `${err.response.status} ${err.response.statusText}.`;
+        let description = "Uh oh there seems to be an error";
+        if (err.response.status == '401') {
+            description = 'There may be an authentication error in your auth/auth.json file.';
+        }
+        if (err.response.status == '404') {
+            description = 'This ticket does not seem to exist.';
+        }
+        if (err.response.status == '400') {
+            description = 'Invalid input for ticket id.';
+        }
+        res.render('pages/error', {
+            error: error_message,
+            description: description
+        });
     }
 });
 
