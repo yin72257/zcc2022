@@ -1,5 +1,5 @@
 ## Zendesk Coding Challenge 2022
-
+This app is a challenge for Zendesk internship application. The main functionality is to display tickets and their details. The framework used is Node.js and Express. API calls are done using Axios. Testing is done using Jest. 
 
 ### Running the App
 Install all dependencies using `npm`.
@@ -28,4 +28,4 @@ Test the application using `npm test`.
 ```bash
 npm test
 ```
-Coverage details will show in the `coverage` folder.
+Coverage report will show in the `coverage` folder.
