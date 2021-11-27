@@ -1,14 +1,14 @@
 const express = require('express');
 const fs = require('fs');
 const axios = require('axios');
-const url = require('url'); // built-in utility
+const url = require('url');
 const { list_error, ticket_error } = require('../error_handling/ticket_error');
 
 const router = express.Router();
 
 router.use(function (req, res, next) {
     try {
-        const auth = JSON.parse(fs.readFileSync('./auth/auth.json')); 
+        const auth = JSON.parse(fs.readFileSync('./auth/auth.json'));
         if (!auth.username) {
             res.status(401).send('Username not found in auth.json');
             return;
@@ -63,7 +63,7 @@ async function list_handle(req, res) {
         });
     } catch (err) {
         if (!err.response) {
-            console.log(err);
+            res.send(err);
             return;
         }
         res.render('pages/error', list_error(err.response));
@@ -103,7 +103,7 @@ async function view_ticket_handle(req, res) {
         });
     } catch (err) {
         if (!err.response) {
-            console.log(err);
+            res.send(err);
             return;
         }
         res.render('pages/error', ticket_error(err.response));
@@ -112,6 +112,7 @@ async function view_ticket_handle(req, res) {
 
 // Home page route
 router.get('/', list_handle);
+// Route for viewing individual tickets
 router.get('/view/:ticket_id', view_ticket_handle);
 
 module.exports.router = router;

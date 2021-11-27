@@ -12,4 +12,16 @@ describe('Test the root path', () => {
         const response = await request(app).get(`/view/${ticket_id}`);
         expect(response.statusCode).toBe(200);
     });
+
+    test('It should respond with error that ticket is invalid', async () => {
+        const ticket_id = 'A';
+        const response = await request(app).get(`/view/${ticket_id}`);
+        expect(response.statusCode).toBe(200);
+    });
+
+    test('It should respond with error that ticket does not exist', async () => {
+        const ticket_id = 10000;
+        const response = await request(app).get(`/view/${ticket_id}`);
+        expect(response.statusCode).toBe(200);
+    });
 });
