@@ -29,3 +29,8 @@ Test the application using `npm test`.
 npm test
 ```
 Coverage report will show in the `coverage` folder.
+
+If the authentication is set up correctly you would see the UI as below.
+![Main page image](./images/main-page.png)
+
+
