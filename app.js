@@ -4,7 +4,7 @@ var app = express();
 
 app.set('view engine', 'ejs');
 
-app.use('/', ticket);
+app.use('/', ticket.router);
 
 module.exports = app;
 
