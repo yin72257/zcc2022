@@ -41,6 +41,10 @@ async function list_handle(req, res) {
             back_url: links.back_url
         });
     } catch (err) {
+        if (!err.response) {
+            console.log(err);
+            return;
+        }
         res.render('pages/error', list_error(err.response));
     }
 }
@@ -77,6 +81,10 @@ async function view_ticket_handle(req, res) {
             back_url: back_url
         });
     } catch (err) {
+        if (!err.response) {
+            console.log(err);
+            return;
+        }
         res.render('pages/error', ticket_error(err.response));
     }
 }

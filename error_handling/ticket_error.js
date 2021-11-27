@@ -1,7 +1,7 @@
 const handle_list = function (response) {
     const error_message = `${response.status} ${response.statusText}.`;
-    let description = "Uh oh there seems to be an error";
-    if (eresponse.status == '401') {
+    let description = "Uh oh there seems to be an error.";
+    if (response.status == '401') {
         description = 'There may be an authentication error in your auth/auth.json file.';
     }
     return {
@@ -12,7 +12,7 @@ const handle_list = function (response) {
 
 const handle_ticket = function (response) {
     const error_message = `${response.status} ${response.statusText}.`;
-    let description = "Uh oh there seems to be an error";
+    let description = "Uh oh there seems to be an error.";
     if (response.status == '401') {
         description = 'There may be an authentication error in your auth/auth.json file.';
     }

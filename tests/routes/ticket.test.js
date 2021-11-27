@@ -5,8 +5,8 @@ const auth = JSON.parse(fs.readFileSync('./auth/auth.json'));
 const zendesk = `https://${auth.subdomain}.zendesk.com`;
 
 
-describe("Test the generate links methods", () => {
-    test("It should response the GET method", async () => {
+describe('Test the generate links methods', () => {
+    test('It should response the GET method', async () => {
         const req = {
             protocol: 'http',
             url: '/?page[size]=25&page[after]=A',
