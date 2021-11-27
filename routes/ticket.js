@@ -6,7 +6,7 @@ const { list_error, ticket_error } = require('../error_handling/ticket_error');
 
 const router = express.Router();
 
-router.use(function (req, res, next) {
+function validate_auth (req, res, next) {
     try {
         const auth = JSON.parse(fs.readFileSync('./auth/auth.json'));
         if (!auth.username) {
@@ -30,8 +30,7 @@ router.use(function (req, res, next) {
     } catch (err) {
         res.status(401).send('auth/auth.json is empty or not found');
     }
-
-})
+}
 
 async function list_handle(req, res) {
     let page_size = 25;
@@ -109,6 +108,8 @@ async function view_ticket_handle(req, res) {
         res.render('pages/error', ticket_error(err.response));
     }
 }
+//Add middleware
+router.use(validate_auth);
 
 // Home page route
 router.get('/', list_handle);

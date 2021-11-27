@@ -1,8 +1,5 @@
 const ticket = require('../../routes/ticket');
-const fs = require('fs');
 const { expect } = require('@jest/globals');
-
-
 
 describe('Test the generate links methods', () => {
     test('It should response the GET method', async () => {

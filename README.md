@@ -22,3 +22,10 @@ Start the Node.js local server using `npm start`.
 ```bash
 npm start
 ```
+
+### Testing the App
+Test the application using `npm test`.
+```bash
+npm test
+```
+Coverage details will show in the `coverage` folder.
