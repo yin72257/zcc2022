@@ -13,7 +13,7 @@ describe('Test the root path', () => {
         expect(response.statusCode).toBe(200);
     });
 
-    test('It should response the GET method Erro with invalid page[after]', async () => {
+    test('It should response the GET method error with invalid page[after]', async () => {
         const response = await request(app).get('/?page[after]=A');
         expect(response.statusCode).toBe(200);
     });
